@@ -1,202 +1,302 @@
 [
-  {"review_id": "CMPREV-001", "source": "G2", "language": "en", "text": "OmniDesk crashes EVERY time I try to export a PDF report. Like literally every single time. I've lost hours of work because of this garbage."},
-  {"review_id": "CMPREV-002", "source": "Capterra", "language": "fr", "text": "L'interface est complètement en anglais même si j'ai choisi français. Les boutons sont traduits mais les menus déroulants restent en anglais. C'est n'importe quoi."},
-  {"review_id": "CMPREV-003", "source": "Reddit", "language": "en", "text": "ngl omnidesk pdf export is broken af. tried 3 times today, crashed every time. support said 'we're aware' like ok cool thx"},
-  {"review_id": "CMPREV-004", "source": "Trustpilot", "language": "fr", "text": "J'ai essayé d'exporter mon rapport en PDF et ça a planté. Deux fois. Mon boss était pas content mettons."},
-  {"review_id": "CMPREV-005", "source": "G2", "language": "en", "text": "The French localization is a joke. Half the strings aren't translated and the date format is still MM/DD/YYYY instead of DD/MM/YYYY. My Quebec team is furious."},
-  {"review_id": "CMPREV-006", "source": "ProductHunt", "language": "en", "text": "Pricing is competitive and features are solid overall."},
-  {"review_id": "CMPREV-007", "source": "Capterra", "language": "fr", "text": "Exporter en PDF? Oubliez ça. Ça plante à chaque fois. On dirait que personne teste cette fonctionnalité là."},
-  {"review_id": "CMPREV-008", "source": "Reddit", "language": "en", "text": "why does omnidesk not have proper french support in 2026?? my clients in montreal literally cant use half the features bc theyre all in english"},
-  {"review_id": "CMPREV-009", "source": "G2", "language": "en", "text": "PDF export = instant crash. Been like this for 3 months. Zero fix. Thinking about switching to a competitor honestly."},
-  {"review_id": "CMPREV-010", "source": "Trustpilot", "language": "fr", "text": "Le support en français est vraiment mauvais. Quand j'écris en français, ils me répondent en anglais. Pis l'application elle-même est à moitié traduite."},
-  {"review_id": "CMPREV-011", "source": "G2", "language": "en", "text": "Tried the new analytics module. Pretty good actually! But then I tried to export and... you guessed it... crash."},
-  {"review_id": "CMPREV-012", "source": "Reddit", "language": "en", "text": "omnidesk ui is clean ngl but the pdf thing is killing me. literally cannot send reports to clients anymore"},
-  {"review_id": "CMPREV-013", "source": "Capterra", "language": "fr", "text": "La traduction française est horrible. Y'a des boutons qui disent 'Submit' au lieu de 'Soumettre'. On est en 2026 là, c'est pas acceptable."},
-  {"review_id": "CMPREV-014", "source": "ProductHunt", "language": "en", "text": "Great customer support team, very responsive. But please fix the PDF export bug, it's been months!"},
-  {"review_id": "CMPREV-015", "source": "G2", "language": "en", "text": "The onboarding was smooth. Integration with Slack is nice. But French-speaking users on my team can't navigate properly — translations are incomplete."},
-  {"review_id": "CMPREV-016", "source": "Trustpilot", "language": "fr", "text": "Chaque fois que j'essaie de faire un PDF, l'application gèle pis je dois tout recommencer. C'est frustrant en tabarnak."},
-  {"review_id": "CMPREV-017", "source": "Reddit", "language": "en", "text": "The dashboard loads pretty fast on most days. Performance is acceptable."},
-  {"review_id": "CMPREV-018", "source": "G2", "language": "en", "text": "We evaluated OmniDesk for our Montreal office but had to pass because the French localization was embarrassingly bad. Missing translations everywhere."},
-  {"review_id": "CMPREV-019", "source": "Capterra", "language": "fr", "text": "J'aime le produit en général mais le PDF crash constamment. Mon équipe utilise des captures d'écran à la place. C'est ridicule."},
-  {"review_id": "CMPREV-020", "source": "Reddit", "language": "en", "text": "omnidesk needs to hire actual french translators lol. the google translate vibes are real. my coworkers in quebec city are not impressed"},
-  {"review_id": "CMPREV-021", "source": "G2", "language": "en", "text": "Solid helpdesk platform with good ticket routing. Just wish the PDF reports actually worked. Crashed 4 times this week alone."},
-  {"review_id": "CMPREV-022", "source": "Trustpilot", "language": "fr", "text": "Les rapports PDF plantent tout le temps. J'ai perdu un rapport de 20 pages. Aucune sauvegarde automatique non plus."},
-  {"review_id": "CMPREV-023", "source": "ProductHunt", "language": "en", "text": "Love the API. Docs are clear. But the actual product has some rough edges — especially PDF export and i18n."},
-  {"review_id": "CMPREV-024", "source": "Reddit", "language": "en", "text": "switched from omnidesk to freshdesk just bc of the pdf export crashes. couldnt deal anymore"},
-  {"review_id": "CMPREV-025", "source": "G2", "language": "en", "text": "The mobile app is surprisingly good. Desktop web app though? PDF export is completely broken."},
-  {"review_id": "CMPREV-026", "source": "Capterra", "language": "fr", "text": "L'application plante quand on essaie d'exporter quoi que ce soit en PDF. C'est le problème numéro un pour notre équipe."},
-  {"review_id": "CMPREV-027", "source": "Trustpilot", "language": "en", "text": "OmniDesk's AI features are cool but the basic stuff doesn't work. Can't export PDFs without a crash. Priorities, people."},
-  {"review_id": "CMPREV-028", "source": "Reddit", "language": "fr", "text": "qqun d'autre a le bug du PDF qui crash? jsuis tanné de perdre mes rapports à cause de ça omg"},
-  {"review_id": "CMPREV-029", "source": "G2", "language": "en", "text": "We're a bilingual company (EN/FR) and OmniDesk fails us on the French side. Incomplete translations, wrong date formats, and some screens are 100% English."},
-  {"review_id": "CMPREV-030", "source": "Capterra", "language": "en", "text": "If you need PDF exports, run away from OmniDesk. It has crashed on me at least 10 times in the last month. No exaggeration."},
-  {"review_id": "CMPREV-031", "source": "ProductHunt", "language": "fr", "text": "Le produit est beau mais la localisation en français est bâclée. On voit que c'est fait avec Google Translate."},
-  {"review_id": "CMPREV-032", "source": "Reddit", "language": "en", "text": "omnidesk pricing is fair tbh. just fix the damn pdf export and itd be perfect"},
-  {"review_id": "CMPREV-033", "source": "G2", "language": "en", "text": "Tried to demo OmniDesk to our French-Canadian clients. Half the UI was in English. Super embarrassing. Lost the deal."},
-  {"review_id": "CMPREV-034", "source": "Trustpilot", "language": "fr", "text": "PDF = crash. À chaque. Maudit. Fois. Je vais changer de plateforme bientôt si ça continue."},
-  {"review_id": "CMPREV-035", "source": "Capterra", "language": "en", "text": "The workflow automation is genuinely impressive. But I need to export reports and PDFs just... don't work."},
-  {"review_id": "CMPREV-036", "source": "Reddit", "language": "en", "text": "day 47 of asking omnidesk to fix pdf export. still broken. still crashing. still losing data."},
-  {"review_id": "CMPREV-037", "source": "G2", "language": "fr", "text": "La version française est une blague. Les erreurs de traduction sont partout. 'Delete' est traduit par 'Effacer' au lieu de 'Supprimer' dans certains endroits."},
-  {"review_id": "CMPREV-038", "source": "Trustpilot", "language": "en", "text": "OmniDesk has potential but the PDF crash bug is a dealbreaker. We're evaluating alternatives right now."},
-  {"review_id": "CMPREV-039", "source": "ProductHunt", "language": "en", "text": "Nice concept but needs polish. The French version feels like an afterthought. Quebec market is huge, guys."},
-  {"review_id": "CMPREV-040", "source": "Reddit", "language": "fr", "text": "lol omnidesk en français c'est tellement mal traduit. y'a des phrases qui font même pas de sens. on dirait du google translate direct"},
-  {"review_id": "CMPREV-041", "source": "G2", "language": "en", "text": "Our IT team flagged OmniDesk's PDF export as a critical bug. Every time someone tries to generate a report, the whole browser tab crashes."},
-  {"review_id": "CMPREV-042", "source": "Capterra", "language": "fr", "text": "On a choisi OmniDesk pour le prix mais la qualité de la traduction française nous fait regretter. C'est vraiment pas professionnel."},
-  {"review_id": "CMPREV-043", "source": "Trustpilot", "language": "en", "text": "Love the integrations, hate the PDF export. 5 crashes in one day trying to send a quarterly report. Unacceptable for enterprise software."},
-  {"review_id": "CMPREV-044", "source": "Reddit", "language": "en", "text": "omnidesk french localization is sooo bad. date formats wrong, currency symbols wrong, some modals still fully in english"},
-  {"review_id": "CMPREV-045", "source": "G2", "language": "en", "text": "The ticket management is top-notch. But when my Montreal team complains daily about French translation issues, something is fundamentally wrong."},
-  {"review_id": "CMPREV-046", "source": "Capterra", "language": "fr", "text": "Impossible d'exporter en PDF sans que ça plante. On a dû utiliser des screenshots pour nos présentations. Pas très pro."},
-  {"review_id": "CMPREV-047", "source": "ProductHunt", "language": "en", "text": "Decent for small teams. Wouldn't recommend for bilingual orgs though — the French support is non-existent basically."},
-  {"review_id": "CMPREV-048", "source": "Reddit", "language": "fr", "text": "le pdf crash encore aujourd'hui. j'en peux pu. qqun connait une alternative?"},
-  {"review_id": "CMPREV-049", "source": "G2", "language": "en", "text": "OmniDesk is like a sports car with a flat tire. Great features on paper, but PDF export crashes make it unusable for my reporting needs."},
-  {"review_id": "CMPREV-050", "source": "Trustpilot", "language": "fr", "text": "Entre le PDF qui plante et la traduction française qui est à moitié faite, on dirait qu'OmniDesk s'en fout du marché québécois."},
-  {"review_id": "CMPREV-051", "source": "G2", "language": "en", "text": "When I export large reports to PDF it consistently fails. The app just hangs and forces me to restart my browser."},
-  {"review_id": "CMPREV-052", "source": "Reddit", "language": "en", "text": "tried to export my dataset as pdf today... silence. then white screen. then nothin. this is ridiculous"},
-  {"review_id": "CMPREV-053", "source": "Capterra", "language": "en", "text": "Everything is perfect except the PDF export feature literally does not work. I've tested it 15+ times. Always crashes."},
-  {"review_id": "CMPREV-054", "source": "Trustpilot", "language": "en", "text": "The reporting dashboard is beautiful until you try to export to PDF. Then disaster strikes."},
-  {"review_id": "CMPREV-055", "source": "G2", "language": "en", "text": "Been using this for 6 months and the ONLY issue is the catastrophic PDF export bug. Seriously needs fixing."},
-  {"review_id": "CMPREV-056", "source": "ProductHunt", "language": "en", "text": "Amazing UI, amazing features, terrible PDF export reliability. It's preventing us from using this as our main reporting tool."},
-  {"review_id": "CMPREV-057", "source": "Reddit", "language": "en", "text": "pdf export broken. pdf export broken. pdf export broken. did i mention pdf export is broken"},
-  {"review_id": "CMPREV-058", "source": "Capterra", "language": "en", "text": "The PDF feature is the biggest weakness of this platform. It crashes every single time with any substantial data."},
-  {"review_id": "CMPREV-059", "source": "G2", "language": "fr", "text": "J'essaye d'utiliser le français mais c'est impossible. Trop de boutons restent en anglais. Le menu c'est 50% EN 50% FR."},
-  {"review_id": "CMPREV-060", "source": "Trustpilot", "language": "en", "text": "Customer service is responsive. Product features are solid. PDF export is completely broken though."},
-  {"review_id": "CMPREV-061", "source": "Reddit", "language": "fr", "text": "Le dashboard en français c'est une catastrophe. Aucune cohérence. Impossible pour mon équipe québécoise de l'utiliser."},
-  {"review_id": "CMPREV-062", "source": "Capterra", "language": "en", "text": "Pricing is reasonable but they need to fix their PDF export immediately. It's a showstopper."},
-  {"review_id": "CMPREV-063", "source": "G2", "language": "en", "text": "PDF export crashes consistently. I've lost count of how many times I've reported this bug."},
-  {"review_id": "CMPREV-064", "source": "ProductHunt", "language": "en", "text": "The platform is great for data management but exporting to PDF is completely non-functional."},
-  {"review_id": "CMPREV-065", "source": "Reddit", "language": "en", "text": "serious question: has ANYONE on the omnidesk team ever tried exporting a report as pdf? bc it ALWAYS breaks"},
-  {"review_id": "CMPREV-066", "source": "Trustpilot", "language": "fr", "text": "Les traductions en français sont mauvaises. Termes techniques mal rendus. Interface confuse."},
-  {"review_id": "CMPREV-067", "source": "G2", "language": "en", "text": "The competitive advantage I thought I had with OmniDesk evaporated when PDF export crashed my entire workflow."},
-  {"review_id": "CMPREV-068", "source": "Capterra", "language": "en", "text": "Would be 5 stars if not for the systematic PDF export failures. Currently 2 stars because of this."},
-  {"review_id": "CMPREV-069", "source": "Reddit", "language": "en", "text": "just me or is everyone experiencing omnidesk pdf crashes??? asking for a friend"},
-  {"review_id": "CMPREV-070", "source": "G2", "language": "fr", "text": "Interface française cassée. Pas utilisable pour un vrai travail professionnel. Trop d'anglais partout."},
-  {"review_id": "CMPREV-071", "source": "ProductHunt", "language": "en", "text": "The PDF export bug is preventing enterprise adoption. This needs to be their top priority."},
-  {"review_id": "CMPREV-072", "source": "Trustpilot", "language": "en", "text": "Beautiful platform, broken PDF feature. That's the tldr for OmniDesk."},
-  {"review_id": "CMPREV-073", "source": "Reddit", "language": "fr", "text": "Pourquoi la traduction en français c'est si mauvaise? Même Deepl c'est mieux que ça."},
-  {"review_id": "CMPREV-074", "source": "G2", "language": "en", "text": "The PDF export reliability is the single biggest blocker to us renewing our contract."},
-  {"review_id": "CMPREV-075", "source": "Capterra", "language": "en", "text": "I love almost everything about OmniDesk except the PDF export which is completely unusable."},
-  {"review_id": "CMPREV-076", "source": "Reddit", "language": "en", "text": "cant export anything to pdf without it breaking. why is this still an issue. fix it please"},
-  {"review_id": "CMPREV-077", "source": "Trustpilot", "language": "fr", "text": "La version française est inacceptable. Beaucoup de mots ou expressions restent en anglais."},
-  {"review_id": "CMPREV-078", "source": "G2", "language": "en", "text": "The PDF export crashes are costing us money. Every failed export = lost productivity."},
-  {"review_id": "CMPREV-079", "source": "ProductHunt", "language": "en", "text": "Excellent platform until you need to export. Then it falls apart completely."},
-  {"review_id": "CMPREV-080", "source": "Capterra", "language": "en", "text": "The core product is solid but the PDF functionality is embarrassingly broken."},
-  {"review_id": "CMPREV-081", "source": "Reddit", "language": "en", "text": "omnidesk pdf export bug is basically permanent. just don't expect that feature to work"},
-  {"review_id": "CMPREV-082", "source": "G2", "language": "fr", "text": "Vraiment déçu par la localisation française. C'est du travail bâclé, c'est clair."},
-  {"review_id": "CMPREV-083", "source": "Trustpilot", "language": "en", "text": "The PDF export issue has been reported hundreds of times and still nothing. That's poor engineering."},
-  {"review_id": "CMPREV-084", "source": "Reddit", "language": "fr", "text": "Interface en français? Lol. C'est à moitié traduit et ça marche pas bien. Zéro effort."},
-  {"review_id": "CMPREV-085", "source": "G2", "language": "en", "text": "Our deal-breaker: PDF export is unreliable. We need stable reporting and OmniDesk can't deliver."},
-  {"review_id": "CMPREV-086", "source": "Capterra", "language": "en", "text": "5 out of 5 features work great. 1 feature (PDF export) doesn't work at all. That's a problem."},
-  {"review_id": "CMPREV-087", "source": "ProductHunt", "language": "en", "text": "The analytics are phenomenal but PDF export is an absolute disaster."},
-  {"review_id": "CMPREV-088", "source": "Reddit", "language": "en", "text": "seriously how is pdf export still broken in 2026??? this is insane"},
-  {"review_id": "CMPREV-089", "source": "G2", "language": "en", "text": "I've documented 12 separate PDF export crashes in two months. This is unacceptable."},
-  {"review_id": "CMPREV-090", "source": "Trustpilot", "language": "en", "text": "Perfect tool for 90% of my needs but that 10% (PDF export) is completely broken."},
-  {"review_id": "CMPREV-091", "source": "Capterra", "language": "en", "text": "The PDF export bug is reportedly being 'investigated' but nothing has changed in months."},
-  {"review_id": "CMPREV-092", "source": "Reddit", "language": "en", "text": "pro tip: dont try to export anything to pdf with omnidesk you will be disappointed"},
-  {"review_id": "CMPREV-093", "source": "G2", "language": "en", "text": "Our engagement with OmniDesk ended because we couldn't rely on PDF exports for client deliverables."},
-  {"review_id": "CMPREV-094", "source": "ProductHunt", "language": "en", "text": "The bugs in PDF export make this unsuitable for production use in our enterprise."},
-  {"review_id": "CMPREV-095", "source": "Trustpilot", "language": "en", "text": "If you don't need PDF exports, OmniDesk is fantastic. Otherwise, look elsewhere."},
-  {"review_id": "CMPREV-096", "source": "Reddit", "language": "en", "text": "omnidesk team needs to spend a week fixing pdf export then they can work on new features"},
-  {"review_id": "CMPREV-097", "source": "G2", "language": "en", "text": "The PDF export failure rate is unacceptable for any business software. Why is this not priority 1?"},
-  {"review_id": "CMPREV-098", "source": "Capterra", "language": "en", "text": "OmniDesk's fatal flaw is the broken PDF export. It's the main feature we need and it doesn't work."},
-  {"review_id": "CMPREV-099", "source": "ProductHunt", "language": "en", "text": "Good product held back by terrible PDF export. Fix that and you'd dominate the market."},
-  {"review_id": "CMPREV-100", "source": "Trustpilot", "language": "en", "text": "In summary: amazing platform except PDF exports crash 100% of the time for us. Deal breaker."},
-  {"review_id": "CMPREV-101", "source": "G2", "language": "en", "text": "PDF export still broken after all this time. We've moved to a competitor."},
-  {"review_id": "CMPREV-102", "source": "Reddit", "language": "en", "text": "exporting to pdf is literally the only thing I need to work and it doesnt. its tragic"},
-  {"review_id": "CMPREV-103", "source": "Capterra", "language": "en", "text": "I'd rate this 5 stars if PDF export worked. Instead it's 1 star for this critical failure."},
-  {"review_id": "CMPREV-104", "source": "Trustpilot", "language": "en", "text": "Every PDF export attempt ends in catastrophic failure. This is unacceptable."},
-  {"review_id": "CMPREV-105", "source": "G2", "language": "en", "text": "The system is unstable when handling PDF export requests. Immediate fix needed."},
-  {"review_id": "CMPREV-106", "source": "ProductHunt", "language": "en", "text": "Features are fantastic, but PDF generation is broken beyond repair."},
-  {"review_id": "CMPREV-107", "source": "Reddit", "language": "en", "text": "pdf exporting? more like pdf nightmaring. avoid this product"},
-  {"review_id": "CMPREV-108", "source": "Capterra", "language": "en", "text": "The PDF crash bug is destroying my productivity. Please fix immediately."},
-  {"review_id": "CMPREV-109", "source": "G2", "language": "en", "text": "PDF export has defeated me. I give up using this feature."},
-  {"review_id": "CMPREV-110", "source": "Trustpilot", "language": "en", "text": "Cannot export anything to PDF. This is beyond unacceptable in 2026."},
-  {"review_id": "CMPREV-111", "source": "Reddit", "language": "fr", "text": "C'est incroyable. La localisation française c'est du n'importe quoi. Comment avoir confiance dans ce produit?"},
-  {"review_id": "CMPREV-112", "source": "G2", "language": "fr", "text": "Interface française = cauchemar traduire. Rien ne marche comme prévu."},
-  {"review_id": "CMPREV-113", "source": "Capterra", "language": "fr", "text": "Français mal géré. Système d'erreurs partout. Très déçu."},
-  {"review_id": "CMPREV-114", "source": "Trustpilot", "language": "fr", "text": "La traduction est si mauvaise que c'est devenu une blague dans notre équipe."},
-  {"review_id": "CMPREV-115", "source": "ProductHunt", "language": "fr", "text": "OmniDesk n'a même pas essayé de localiser correctement. C'est clair."},
-  {"review_id": "CMPREV-116", "source": "Reddit", "language": "en", "text": "Integration with our CRM worked perfectly. Very satisfied with the setup."},
-  {"review_id": "CMPREV-117", "source": "G2", "language": "en", "text": "The reporting module is excellent. Very comprehensive."},
-  {"review_id": "CMPREV-118", "source": "Capterra", "language": "en", "text": "The user interface is intuitive and easy to navigate."},
-  {"review_id": "CMPREV-119", "source": "ProductHunt", "language": "en", "text": "Customer support team is very helpful and responsive."},
-  {"review_id": "CMPREV-120", "source": "Trustpilot", "language": "en", "text": "Overall great product with solid fundamentals."},
-  {"review_id": "CMPREV-121", "source": "Reddit", "language": "en", "text": "export to pdf and the entire system goes down. rly rly bad"},
-  {"review_id": "CMPREV-122", "source": "G2", "language": "en", "text": "PDF export kills our workflow every single time we try it."},
-  {"review_id": "CMPREV-123", "source": "Capterra", "language": "en", "text": "The one feature we desperately need (PDF export) is completely non-functional."},
-  {"review_id": "CMPREV-124", "source": "Trustpilot", "language": "en", "text": "We've resorted to manual workarounds because PDF export never works."},
-  {"review_id": "CMPREV-125", "source": "ProductHunt", "language": "en", "text": "PDF export failure is causing us to lose clients. Not acceptable."},
-  {"review_id": "CMPREV-126", "source": "Reddit", "language": "en", "text": "every report i export turns into a pdf nightmare. so frustrating"},
-  {"review_id": "CMPREV-127", "source": "G2", "language": "en", "text": "The PDF rendering engine is broken at its core."},
-  {"review_id": "CMPREV-128", "source": "Capterra", "language": "en", "text": "We cannot deliver client reports because PDF export fails 100% of the time."},
-  {"review_id": "CMPREV-129", "source": "Trustpilot", "language": "en", "text": "This critical failure with PDF export is forcing us to switch platforms."},
-  {"review_id": "CMPREV-130", "source": "ProductHunt", "language": "en", "text": "Best reporting tool ever... if only PDF export worked."},
-  {"review_id": "CMPREV-131", "source": "Reddit", "language": "fr", "text": "Boutons bilingues c'est un joke. Vraiment du travail au rabais."},
-  {"review_id": "CMPREV-132", "source": "G2", "language": "fr", "text": "Localisation française abandonnée. Très dommageable."},
-  {"review_id": "CMPREV-133", "source": "Capterra", "language": "fr", "text": "Franchement très décevant. Traduction bâclée et incompétente."},
-  {"review_id": "CMPREV-134", "source": "Trustpilot", "language": "fr", "text": "Le français n'existe essentiellement pas. Juste de l'anglais traduit."},
-  {"review_id": "CMPREV-135", "source": "ProductHunt", "language": "fr", "text": "C'est humiliant comme mauvaise foi avec les utilisateurs français."},
-  {"review_id": "CMPREV-136", "source": "Reddit", "language": "en", "text": "Mobile app performance is quite good. No major complaints there."},
-  {"review_id": "CMPREV-137", "source": "G2", "language": "en", "text": "Data management capabilities are impressive and powerful."},
-  {"review_id": "CMPREV-138", "source": "Capterra", "language": "en", "text": "The dashboard customization options are fantastic."},
-  {"review_id": "CMPREV-139", "source": "Trustpilot", "language": "en", "text": "API documentation is clear and comprehensive."},
-  {"review_id": "CMPREV-140", "source": "ProductHunt", "language": "en", "text": "Slack integration works flawlessly. Very impressed."},
-  {"review_id": "CMPREV-141", "source": "Reddit", "language": "en", "text": "pdf export broken x100. i want my money back"},
-  {"review_id": "CMPREV-142", "source": "G2", "language": "en", "text": "How is PDF export still unfixed? This is a basic feature!"},
-  {"review_id": "CMPREV-143", "source": "Capterra", "language": "en", "text": "PDF export failure is a dealbreaker for enterprise use."},
-  {"review_id": "CMPREV-144", "source": "Trustpilot", "language": "en", "text": "Cannot recommend OmniDesk due to PDF export crashes."},
-  {"review_id": "CMPREV-145", "source": "ProductHunt", "language": "en", "text": "The PDF export bug needs immediate resolution. It's critical."},
-  {"review_id": "CMPREV-146", "source": "Reddit", "language": "en", "text": "my pdf exports literally never work. thats it. dont buy"},
-  {"review_id": "CMPREV-147", "source": "G2", "language": "en", "text": "PDF output is completely unreliable. Needs complete overhaul."},
-  {"review_id": "CMPREV-148", "source": "Capterra", "language": "en", "text": "We're paying for a product we can't fully use due to PDF crashes."},
-  {"review_id": "CMPREV-149", "source": "Trustpilot", "language": "en", "text": "The PDF feature should not be advertised as working when it doesn't."},
-  {"review_id": "CMPREV-150", "source": "ProductHunt", "language": "en", "text": "PDF export is the Achilles heel of OmniDesk. Tragic oversight."},
-  {"review_id": "CMPREV-151", "source": "Reddit", "language": "fr", "text": "Français = Google Translate. C'est pitoyable franchement."},
-  {"review_id": "CMPREV-152", "source": "G2", "language": "fr", "text": "La qualité de la traduction est terriblement mauvaise."},
-  {"review_id": "CMPREV-153", "source": "Capterra", "language": "fr", "text": "Aucun respect pour le marché québécois. Totalement bâclé."},
-  {"review_id": "CMPREV-154", "source": "Trustpilot", "language": "fr", "text": "Les erreurs de traduction sont honteuses pour une entreprise."},
-  {"review_id": "CMPREV-155", "source": "ProductHunt", "language": "fr", "text": "OmniDesk insulte l'intelligence avec cette fausse localisation."},
-  {"review_id": "CMPREV-156", "source": "Reddit", "language": "en", "text": "Great for small projects. Scalability is decent."},
-  {"review_id": "CMPREV-157", "source": "G2", "language": "en", "text": "Pricing is competitive compared to Salesforce alternatives."},
-  {"review_id": "CMPREV-158", "source": "Capterra", "language": "en", "text": "Enterprise features are solid and well-implemented."},
-  {"review_id": "CMPREV-159", "source": "Trustpilot", "language": "en", "text": "Good ROI for our investment in the platform."},
-  {"review_id": "CMPREV-160", "source": "ProductHunt", "language": "en", "text": "Security features are robust and industry-standard."},
-  {"review_id": "CMPREV-161", "source": "Reddit", "language": "en", "text": "trying to export pdf is like playing russian roulette"},
-  {"review_id": "CMPREV-162", "source": "G2", "language": "en", "text": "PDF export function needs to be completely rewritten."},
-  {"review_id": "CMPREV-163", "source": "Capterra", "language": "en", "text": "This single bug (PDF crash) makes the platform unsuitable for us."},
-  {"review_id": "CMPREV-164", "source": "Trustpilot", "language": "en", "text": "Stop advertising PDF export capability when it doesn't work."},
-  {"review_id": "CMPREV-165", "source": "ProductHunt", "language": "en", "text": "PDF export reliability is 0%. Completely broken system."},
-  {"review_id": "CMPREV-166", "source": "Reddit", "language": "en", "text": "pdf export: 0 successes, 50+ attempts. avoid completely"},
-  {"review_id": "CMPREV-167", "source": "G2", "language": "en", "text": "The PDF bug is costing our business money daily."},
-  {"review_id": "CMPREV-168", "source": "Capterra", "language": "en", "text": "We cannot use OmniDesk as our primary tool due to PDF failures."},
-  {"review_id": "CMPREV-169", "source": "Trustpilot", "language": "en", "text": "PDF export crash is the reason we're leaving OmniDesk."},
-  {"review_id": "CMPREV-170", "source": "ProductHunt", "language": "en", "text": "The PDF rendering system is fundamentally broken."},
-  {"review_id": "CMPREV-171", "source": "Reddit", "language": "fr", "text": "Traduction française: 1 sur 10 pour le effort mis. Minimal."},
-  {"review_id": "CMPREV-172", "source": "G2", "language": "fr", "text": "Localization fail majeur. N'utilise pas cette version."},
-  {"review_id": "CMPREV-173", "source": "Capterra", "language": "fr", "text": "Interface française = mensonge marketing. Reste en anglais."},
-  {"review_id": "CMPREV-174", "source": "Trustpilot", "language": "fr", "text": "Le français est tellement mal que c'est inutilisable."},
-  {"review_id": "CMPREV-175", "source": "ProductHunt", "language": "fr", "text": "Vraiment décevant. Zéro respect pour les francophones."},
-  {"review_id": "CMPREV-176", "source": "Reddit", "language": "en", "text": "Analytics engine is powerful. Good data insights."},
-  {"review_id": "CMPREV-177", "source": "G2", "language": "en", "text": "Workflow automation features are well-designed."},
-  {"review_id": "CMPREV-178", "source": "Capterra", "language": "en", "text": "Collaboration tools are intuitive and effective."},
-  {"review_id": "CMPREV-179", "source": "Trustpilot", "language": "en", "text": "Real-time updates work great. No lag issues."},
-  {"review_id": "CMPREV-180", "source": "ProductHunt", "language": "en", "text": "Notification system is timely and configurable."},
-  {"review_id": "CMPREV-181", "source": "Reddit", "language": "en", "text": "i cannot get a single pdf export to work. not one"},
-  {"review_id": "CMPREV-182", "source": "G2", "language": "en", "text": "PDF export is the only reason we might leave OmniDesk."},
-  {"review_id": "CMPREV-183", "source": "Capterra", "language": "en", "text": "The PDF bug has been our biggest complaint for months."},
-  {"review_id": "CMPREV-184", "source": "Trustpilot", "language": "en", "text": "OmniDesk PDF export = guaranteed failure every time."},
-  {"review_id": "CMPREV-185", "source": "ProductHunt", "language": "en", "text": "PDF export is the #1 issue preventing wider adoption."},
-  {"review_id": "CMPREV-186", "source": "Reddit", "language": "en", "text": "100% failure rate on pdf exports. thats all i need to say"},
-  {"review_id": "CMPREV-187", "source": "G2", "language": "en", "text": "PDF rendering engine has fundamental architectural issues."},
-  {"review_id": "CMPREV-188", "source": "Capterra", "language": "en", "text": "This PDF crash bug should be priority #1 for the team."},
-  {"review_id": "CMPREV-189", "source": "Trustpilot", "language": "en", "text": "How many more customers until PDF export gets fixed?"},
-  {"review_id": "CMPREV-190", "source": "ProductHunt", "language": "en", "text": "The PDF export failure is inexcusable in production software."},
-  {"review_id": "CMPREV-191", "source": "Reddit", "language": "fr", "text": "Francais du OmniDesk: incompetent et dangereux. Evitar."},
-  {"review_id": "CMPREV-192", "source": "G2", "language": "fr", "text": "Mauvaise localization francaise. Trop de defauts critiques."},
-  {"review_id": "CMPREV-193", "source": "Capterra", "language": "fr", "text": "Interface francaise est non-professionnel. Trop bas qualite."},
-  {"review_id": "CMPREV-194", "source": "Trustpilot", "language": "fr", "text": "Localization francaise est un gaspillage total d'effort."},
-  {"review_id": "CMPREV-195", "source": "ProductHunt", "language": "fr", "text": "Interface FR ne merite pas le nom de 'francais'."},
-  {"review_id": "CMPREV-196", "source": "Reddit", "language": "en", "text": "Database management is robust. No data loss issues."},
-  {"review_id": "CMPREV-199", "source": "G2", "language": "en", "text": "Search functionality works quickly and accurately."},
-  {"review_id": "CMPREV-197", "source": "Capterra", "language": "en", "text": "Backup and recovery features are comprehensive."},
-  {"review_id": "CMPREV-198", "source": "Trustpilot", "language": "en", "text": "Compliance features meet our regulatory requirements."},
-  {"review_id": "CMPREV-200", "source": "ProductHunt", "language": "en", "text": "Export to PDF? Forget about it with OmniDesk."}
+  {
+    "review_id": "CMPREV-001",
+    "source": "G2",
+    "language": "en",
+    "text": "OmniDesk crashes EVERY time I try to export a PDF report. Like literally every single time. I've lost hours of work because of this garbage."
+  },
+  {
+    "review_id": "CMPREV-002",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "L'interface est compl\u00e8tement en anglais m\u00eame si j'ai choisi fran\u00e7ais. Les boutons sont traduits mais les menus d\u00e9roulants restent en anglais. C'est n'importe quoi."
+  },
+  {
+    "review_id": "CMPREV-003",
+    "source": "Reddit",
+    "language": "en",
+    "text": "ngl omnidesk pdf export is broken af. tried 3 times today, crashed every time. support said 'we're aware' like ok cool thx"
+  },
+  {
+    "review_id": "CMPREV-004",
+    "source": "Trustpilot",
+    "language": "fr",
+    "text": "J'ai essay\u00e9 d'exporter mon rapport en PDF et \u00e7a a plant\u00e9. Deux fois. Mon boss \u00e9tait pas content mettons."
+  },
+  {
+    "review_id": "CMPREV-005",
+    "source": "G2",
+    "language": "en",
+    "text": "The French localization is a joke. Half the strings aren't translated and the date format is still MM/DD/YYYY instead of DD/MM/YYYY. My Quebec team is furious."
+  },
+  {
+    "review_id": "CMPREV-006",
+    "source": "ProductHunt",
+    "language": "en",
+    "text": "Pricing is competitive and features are solid overall."
+  },
+  {
+    "review_id": "CMPREV-007",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "Exporter en PDF? Oubliez \u00e7a. \u00c7a plante \u00e0 chaque fois. On dirait que personne teste cette fonctionnalit\u00e9 l\u00e0."
+  },
+  {
+    "review_id": "CMPREV-008",
+    "source": "Reddit",
+    "language": "en",
+    "text": "why does omnidesk not have proper french support in 2026?? my clients in montreal literally cant use half the features bc theyre all in english"
+  },
+  {
+    "review_id": "CMPREV-009",
+    "source": "G2",
+    "language": "en",
+    "text": "PDF export = instant crash. Been like this for 3 months. Zero fix. Thinking about switching to a competitor honestly."
+  },
+  {
+    "review_id": "CMPREV-010",
+    "source": "Trustpilot",
+    "language": "fr",
+    "text": "Le support en fran\u00e7ais est vraiment mauvais. Quand j'\u00e9cris en fran\u00e7ais, ils me r\u00e9pondent en anglais. Pis l'application elle-m\u00eame est \u00e0 moiti\u00e9 traduite."
+  },
+  {
+    "review_id": "CMPREV-011",
+    "source": "G2",
+    "language": "en",
+    "text": "Tried the new analytics module. Pretty good actually! But then I tried to export and... you guessed it... crash."
+  },
+  {
+    "review_id": "CMPREV-012",
+    "source": "Reddit",
+    "language": "en",
+    "text": "omnidesk ui is clean ngl but the pdf thing is killing me. literally cannot send reports to clients anymore"
+  },
+  {
+    "review_id": "CMPREV-013",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "La traduction fran\u00e7aise est horrible. Y'a des boutons qui disent 'Submit' au lieu de 'Soumettre'. On est en 2026 l\u00e0, c'est pas acceptable."
+  },
+  {
+    "review_id": "CMPREV-014",
+    "source": "ProductHunt",
+    "language": "en",
+    "text": "Great customer support team, very responsive. But please fix the PDF export bug, it's been months!"
+  },
+  {
+    "review_id": "CMPREV-015",
+    "source": "G2",
+    "language": "en",
+    "text": "The onboarding was smooth. Integration with Slack is nice. But French-speaking users on my team can't navigate properly \u2014 translations are incomplete."
+  },
+  {
+    "review_id": "CMPREV-016",
+    "source": "Trustpilot",
+    "language": "fr",
+    "text": "Chaque fois que j'essaie de faire un PDF, l'application g\u00e8le pis je dois tout recommencer. C'est frustrant en tabarnak."
+  },
+  {
+    "review_id": "CMPREV-017",
+    "source": "Reddit",
+    "language": "en",
+    "text": "The dashboard loads pretty fast on most days. Performance is acceptable."
+  },
+  {
+    "review_id": "CMPREV-018",
+    "source": "G2",
+    "language": "en",
+    "text": "We evaluated OmniDesk for our Montreal office but had to pass because the French localization was embarrassingly bad. Missing translations everywhere."
+  },
+  {
+    "review_id": "CMPREV-019",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "J'aime le produit en g\u00e9n\u00e9ral mais le PDF crash constamment. Mon \u00e9quipe utilise des captures d'\u00e9cran \u00e0 la place. C'est ridicule."
+  },
+  {
+    "review_id": "CMPREV-020",
+    "source": "Reddit",
+    "language": "en",
+    "text": "omnidesk needs to hire actual french translators lol. the google translate vibes are real. my coworkers in quebec city are not impressed"
+  },
+  {
+    "review_id": "CMPREV-021",
+    "source": "G2",
+    "language": "en",
+    "text": "Solid helpdesk platform with good ticket routing. Just wish the PDF reports actually worked. Crashed 4 times this week alone."
+  },
+  {
+    "review_id": "CMPREV-022",
+    "source": "Trustpilot",
+    "language": "fr",
+    "text": "Les rapports PDF plantent tout le temps. J'ai perdu un rapport de 20 pages. Aucune sauvegarde automatique non plus."
+  },
+  {
+    "review_id": "CMPREV-023",
+    "source": "ProductHunt",
+    "language": "en",
+    "text": "Love the API. Docs are clear. But the actual product has some rough edges \u2014 especially PDF export and i18n."
+  },
+  {
+    "review_id": "CMPREV-024",
+    "source": "Reddit",
+    "language": "en",
+    "text": "switched from omnidesk to freshdesk just bc of the pdf export crashes. couldnt deal anymore"
+  },
+  {
+    "review_id": "CMPREV-025",
+    "source": "G2",
+    "language": "en",
+    "text": "The mobile app is surprisingly good. Desktop web app though? PDF export is completely broken."
+  },
+  {
+    "review_id": "CMPREV-026",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "L'application plante quand on essaie d'exporter quoi que ce soit en PDF. C'est le probl\u00e8me num\u00e9ro un pour notre \u00e9quipe."
+  },
+  {
+    "review_id": "CMPREV-027",
+    "source": "Trustpilot",
+    "language": "en",
+    "text": "OmniDesk's AI features are cool but the basic stuff doesn't work. Can't export PDFs without a crash. Priorities, people."
+  },
+  {
+    "review_id": "CMPREV-028",
+    "source": "Reddit",
+    "language": "fr",
+    "text": "qqun d'autre a le bug du PDF qui crash? jsuis tann\u00e9 de perdre mes rapports \u00e0 cause de \u00e7a omg"
+  },
+  {
+    "review_id": "CMPREV-029",
+    "source": "G2",
+    "language": "en",
+    "text": "We're a bilingual company (EN/FR) and OmniDesk fails us on the French side. Incomplete translations, wrong date formats, and some screens are 100% English."
+  },
+  {
+    "review_id": "CMPREV-030",
+    "source": "Capterra",
+    "language": "en",
+    "text": "If you need PDF exports, run away from OmniDesk. It has crashed on me at least 10 times in the last month. No exaggeration."
+  },
+  {
+    "review_id": "CMPREV-031",
+    "source": "ProductHunt",
+    "language": "fr",
+    "text": "Le produit est beau mais la localisation en fran\u00e7ais est b\u00e2cl\u00e9e. On voit que c'est fait avec Google Translate."
+  },
+  {
+    "review_id": "CMPREV-032",
+    "source": "Reddit",
+    "language": "en",
+    "text": "omnidesk pricing is fair tbh. just fix the damn pdf export and itd be perfect"
+  },
+  {
+    "review_id": "CMPREV-033",
+    "source": "G2",
+    "language": "en",
+    "text": "Tried to demo OmniDesk to our French-Canadian clients. Half the UI was in English. Super embarrassing. Lost the deal."
+  },
+  {
+    "review_id": "CMPREV-034",
+    "source": "Trustpilot",
+    "language": "fr",
+    "text": "PDF = crash. \u00c0 chaque. Maudit. Fois. Je vais changer de plateforme bient\u00f4t si \u00e7a continue."
+  },
+  {
+    "review_id": "CMPREV-035",
+    "source": "Capterra",
+    "language": "en",
+    "text": "The workflow automation is genuinely impressive. But I need to export reports and PDFs just... don't work."
+  },
+  {
+    "review_id": "CMPREV-036",
+    "source": "Reddit",
+    "language": "en",
+    "text": "day 47 of asking omnidesk to fix pdf export. still broken. still crashing. still losing data."
+  },
+  {
+    "review_id": "CMPREV-037",
+    "source": "G2",
+    "language": "fr",
+    "text": "La version fran\u00e7aise est une blague. Les erreurs de traduction sont partout. 'Delete' est traduit par 'Effacer' au lieu de 'Supprimer' dans certains endroits."
+  },
+  {
+    "review_id": "CMPREV-038",
+    "source": "Trustpilot",
+    "language": "en",
+    "text": "OmniDesk has potential but the PDF crash bug is a dealbreaker. We're evaluating alternatives right now."
+  },
+  {
+    "review_id": "CMPREV-039",
+    "source": "ProductHunt",
+    "language": "en",
+    "text": "Nice concept but needs polish. The French version feels like an afterthought. Quebec market is huge, guys."
+  },
+  {
+    "review_id": "CMPREV-040",
+    "source": "Reddit",
+    "language": "fr",
+    "text": "lol omnidesk en fran\u00e7ais c'est tellement mal traduit. y'a des phrases qui font m\u00eame pas de sens. on dirait du google translate direct"
+  },
+  {
+    "review_id": "CMPREV-041",
+    "source": "G2",
+    "language": "en",
+    "text": "Our IT team flagged OmniDesk's PDF export as a critical bug. Every time someone tries to generate a report, the whole browser tab crashes."
+  },
+  {
+    "review_id": "CMPREV-042",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "On a choisi OmniDesk pour le prix mais la qualit\u00e9 de la traduction fran\u00e7aise nous fait regretter. C'est vraiment pas professionnel."
+  },
+  {
+    "review_id": "CMPREV-043",
+    "source": "Trustpilot",
+    "language": "en",
+    "text": "Love the integrations, hate the PDF export. 5 crashes in one day trying to send a quarterly report. Unacceptable for enterprise software."
+  },
+  {
+    "review_id": "CMPREV-044",
+    "source": "Reddit",
+    "language": "en",
+    "text": "omnidesk french localization is sooo bad. date formats wrong, currency symbols wrong, some modals still fully in english"
+  },
+  {
+    "review_id": "CMPREV-045",
+    "source": "G2",
+    "language": "en",
+    "text": "The ticket management is top-notch. But when my Montreal team complains daily about French translation issues, something is fundamentally wrong."
+  },
+  {
+    "review_id": "CMPREV-046",
+    "source": "Capterra",
+    "language": "fr",
+    "text": "Impossible d'exporter en PDF sans que \u00e7a plante. On a d\u00fb utiliser des screenshots pour nos pr\u00e9sentations. Pas tr\u00e8s pro."
+  },
+  {
+    "review_id": "CMPREV-047",
+    "source": "ProductHunt",
+    "language": "en",
+    "text": "Decent for small teams. Wouldn't recommend for bilingual orgs though \u2014 the French support is non-existent basically."
+  },
+  {
+    "review_id": "CMPREV-048",
+    "source": "Reddit",
+    "language": "fr",
+    "text": "le pdf crash encore aujourd'hui. j'en peux pu. qqun connait une alternative?"
+  },
+  {
+    "review_id": "CMPREV-049",
+    "source": "G2",
+    "language": "en",
+    "text": "OmniDesk is like a sports car with a flat tire. Great features on paper, but PDF export crashes make it unusable for my reporting needs."
+  },
+  {
+    "review_id": "CMPREV-050",
+    "source": "Trustpilot",
+    "language": "fr",
+    "text": "Entre le PDF qui plante et la traduction fran\u00e7aise qui est \u00e0 moiti\u00e9 faite, on dirait qu'OmniDesk s'en fout du march\u00e9 qu\u00e9b\u00e9cois."
+  }
 ]
