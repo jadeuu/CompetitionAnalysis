@@ -1,0 +1,10 @@
+{
+  "name": "McGillDataNetwork",
+  "version": "1.0.0",
+  "description": "Agent plugin for McGill Data Network — includes skills for agent development, frontend design, and MCP integration.",
+  "skills": [
+    "skills/agent-development",
+    "skills/frontend-design",
+    "skills/mcp-integration"
+  ]
+}
