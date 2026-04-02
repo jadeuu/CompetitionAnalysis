@@ -25,8 +25,31 @@ interface CompetitorWeakness {
   engineering_ticket: string;
 }
 
+interface ChurnSignal {
+  review_id: string;
+  churn_level: "actively_leaving" | "frustrated" | "complaining";
+  signal_phrase: string;
+}
+
+interface HealthScore {
+  score: number;
+  summary: string;
+  opportunity_level: "critical" | "high" | "moderate" | "low";
+  window_statement: string;
+}
+
 interface AnalysisResponse {
   weaknesses: CompetitorWeakness[];
+  churn_signals: ChurnSignal[];
+  health_score: HealthScore;
+}
+
+interface CompanyProfile {
+  company_name: string;
+  description: string;
+  key_strengths: string;
+  target_market: string;
+  biggest_edge: string;
 }
 
 // ─── Constants ────────────────────────────────────────────────────
@@ -199,6 +222,26 @@ function PieChart({
   );
 }
 
+interface CompanyProfile {
+  company_name: string;
+  description: string;
+  key_strengths: string;
+  target_market: string;
+  biggest_edge: string;
+}
+
+const BOUNDARY_AI_PROFILE: CompanyProfile = {
+  company_name: "Boundary AI",
+  description:
+    "An enterprise-grade AI feedback intelligence platform (BAI Analytics) that automatically collects and analyzes unstructured feedback from every channel — social media, reviews, surveys, support tickets — turning noisy human text into clear, actionable insights.",
+  key_strengths:
+    "Full traceability of every insight back to its original verbatim source (eliminating black-box AI), omnichannel agentic feedback collection, contextual understanding via topic clustering and intent detection, GDPR-compliant in-region hosting, and executive-ready shareable reports.",
+  target_market:
+    "Enterprise and mid-size organizations in hospitality, events, education, and customer experience — including clients like HEC Montréal and McGill University.",
+  biggest_edge:
+    "Every insight is traceable to the original verbatim feedback, with zero black-box logic or hallucinations — making AI-generated intelligence auditable and trustworthy for enterprise governance teams.",
+};
+
 const SOURCE_COLORS: Record<string, string> = {
   G2: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
   Capterra: "bg-orange-500/15 text-orange-400 border-orange-500/30",
@@ -213,6 +256,43 @@ const SEVERITY_CONFIG = [
   { label: "MODERATE", color: "text-accent", bg: "bg-accent-glow border-accent/30", icon: "🔵" },
 ];
 
+const CHURN_CONFIG = {
+  actively_leaving: {
+    label: "SWITCHING",
+    badge: "bg-red-500/20 text-red-400 border-red-500/40",
+    border: "border-red-500/50",
+    glow: "shadow-[0_0_12px_rgba(239,68,68,0.15)]",
+    pulse: true,
+    sort: 0,
+    icon: "🔴",
+  },
+  frustrated: {
+    label: "FRUSTRATED",
+    badge: "bg-orange-500/20 text-orange-400 border-orange-500/40",
+    border: "border-orange-500/30",
+    glow: "",
+    pulse: false,
+    sort: 1,
+    icon: "🟠",
+  },
+  complaining: {
+    label: "COMPLAINING",
+    badge: "bg-yellow-500/20 text-yellow-500 border-yellow-500/40",
+    border: "border-border",
+    glow: "",
+    pulse: false,
+    sort: 2,
+    icon: "🟡",
+  },
+};
+
+const HEALTH_CONFIG = {
+  critical: { color: "#ef4444", label: "CRITICAL VULNERABILITY", bg: "bg-red-500/10 border-red-500/30" },
+  high: { color: "#f59e0b", label: "HIGH OPPORTUNITY", bg: "bg-amber-500/10 border-amber-500/30" },
+  moderate: { color: "#6366f1", label: "MODERATE OPPORTUNITY", bg: "bg-indigo-500/10 border-indigo-500/30" },
+  low: { color: "#22c55e", label: "LOW OPPORTUNITY", bg: "bg-green-500/10 border-green-500/30" },
+};
+
 // ─── Sub-Components ───────────────────────────────────────────────
 
 function Header() {
@@ -224,24 +304,70 @@ function Header() {
             MA
           </div>
           <div>
-            <h1 className="text-sm font-semibold tracking-tight">
-              Market Arbitrage
-            </h1>
-            <p className="text-[11px] text-text-muted">
-              Competitor Weakness Miner
-            </p>
+            <h1 className="text-sm font-semibold tracking-tight">Market Arbitrage</h1>
+            <p className="text-[11px] text-text-muted">Competitor Weakness Miner</p>
           </div>
         </div>
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <span className="px-2 py-1 rounded bg-surface-raised border border-border font-mono">
-            gpt-4o-mini
-          </span>
-          <span className="px-2 py-1 rounded bg-surface-raised border border-border">
-            Boundary AI Hackathon
-          </span>
+          <span className="px-2 py-1 rounded bg-surface-raised border border-border font-mono">gpt-4o-mini</span>
+          <span className="px-2 py-1 rounded bg-surface-raised border border-border">Boundary AI Hackathon</span>
         </div>
       </div>
     </header>
+  );
+}
+
+function HealthScorePanel({ health }: { health: HealthScore }) {
+  const cfg = HEALTH_CONFIG[health.opportunity_level];
+  const pct = Math.min(100, Math.max(0, health.score));
+
+  // Score color: red < 40, amber 40-59, indigo 60-74, green 75+
+  const barColor =
+    pct < 40 ? "#ef4444" : pct < 60 ? "#f59e0b" : pct < 75 ? "#6366f1" : "#22c55e";
+
+  return (
+    <div
+      className={`animate-slide-up rounded-2xl border p-5 ${cfg.bg}`}
+      style={{ animationDelay: "0ms" }}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-0.5">
+            Competitor Health Score
+          </p>
+          <p className="text-[11px] text-text-dim">OmniDesk · based on {reviews.length} reviews</p>
+        </div>
+        <div className="text-right">
+          <p className="text-4xl font-black tabular-nums" style={{ color: barColor }}>
+            {health.score}
+          </p>
+          <p className="text-[10px] text-text-muted">/ 100</p>
+        </div>
+      </div>
+
+      {/* Progress bar */}
+      <div className="h-2.5 rounded-full bg-surface-overlay mb-3 overflow-hidden">
+        <div
+          className="h-full rounded-full transition-all duration-1000 ease-out"
+          style={{ width: `${pct}%`, backgroundColor: barColor }}
+        />
+      </div>
+
+      {/* Opportunity badge */}
+      <div className="flex items-center gap-2 mb-2">
+        <span
+          className={`text-[10px] font-bold tracking-widest px-2 py-0.5 rounded-md border ${cfg.bg}`}
+          style={{ color: cfg.color, borderColor: `${cfg.color}40` }}
+        >
+          {cfg.label}
+        </span>
+        <span className="text-[12px] font-medium" style={{ color: cfg.color }}>
+          {health.window_statement}
+        </span>
+      </div>
+
+      <p className="text-[12px] text-foreground/60 leading-relaxed">{health.summary}</p>
+    </div>
   );
 }
 
@@ -249,12 +375,16 @@ function ReviewCard({
   review,
   isHighlighted,
   isTraced,
+  churnSignal,
 }: {
   review: Review;
   isHighlighted: boolean;
   isTraced: boolean;
+  churnSignal?: ChurnSignal;
 }) {
-  const sourceStyle = SOURCE_COLORS[review.source] || "bg-gray-500/15 text-gray-400 border-gray-500/30";
+  const sourceStyle =
+    SOURCE_COLORS[review.source] || "bg-gray-500/15 text-gray-400 border-gray-500/30";
+  const churnCfg = churnSignal ? CHURN_CONFIG[churnSignal.churn_level] : null;
 
   return (
     <div
@@ -265,29 +395,43 @@ function ReviewCard({
           ? "bg-highlight-bg border-highlight-border shadow-[0_0_20px_rgba(99,102,241,0.1)] scale-[1.02]"
           : isTraced
             ? "bg-accent-glow/50 border-accent/20"
-            : "bg-surface-raised border-border hover:border-border-bright"
+            : churnCfg
+              ? `bg-surface-raised ${churnCfg.border} ${churnCfg.glow}`
+              : "bg-surface-raised border-border hover:border-border-bright"
         }
       `}
     >
-      {/* Trace indicator */}
-      {isTraced && (
+      {/* Left accent bar */}
+      {isTraced && !isHighlighted && (
         <div className="absolute -left-px top-3 bottom-3 w-[3px] rounded-full bg-accent" />
       )}
+      {churnSignal?.churn_level === "actively_leaving" && !isTraced && (
+        <div className="absolute -left-px top-3 bottom-3 w-[3px] rounded-full bg-red-500 animate-pulse-glow" />
+      )}
 
-      <div className="flex items-center gap-2 mb-2">
-        <span className="font-mono text-[11px] text-text-dim font-medium">
-          {review.review_id}
-        </span>
+      <div className="flex items-center gap-2 mb-2 flex-wrap">
+        <span className="font-mono text-[11px] text-text-dim font-medium">{review.review_id}</span>
         <span className={`text-[10px] px-1.5 py-0.5 rounded-md border font-medium ${sourceStyle}`}>
           {review.source}
         </span>
         <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-surface-overlay border border-border text-text-muted uppercase tracking-wider">
           {review.language}
         </span>
+        {churnCfg && (
+          <span className={`text-[10px] px-1.5 py-0.5 rounded-md border font-bold tracking-wider ${churnCfg.badge}`}>
+            {churnCfg.icon} {churnCfg.label}
+          </span>
+        )}
       </div>
-      <p className="text-[13px] leading-relaxed text-foreground/80">
-        {review.text}
-      </p>
+
+      <p className="text-[13px] leading-relaxed text-foreground/80">{review.text}</p>
+
+      {/* Signal phrase tooltip */}
+      {churnSignal && (
+        <p className="mt-1.5 text-[11px] text-text-dim italic">
+          Signal: &ldquo;{churnSignal.signal_phrase}&rdquo;
+        </p>
+      )}
     </div>
   );
 }
@@ -315,9 +459,8 @@ function WeaknessCard({
           : "bg-surface-raised border-border hover:border-border-bright hover:bg-surface-overlay"
         }
       `}
-      style={{ animationDelay: `${index * 120}ms` }}
+      style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
-      {/* Severity + Title */}
       <div className="flex items-start gap-3 mb-3">
         <span className="text-lg mt-0.5">{severity.icon}</span>
         <div className="flex-1 min-w-0">
@@ -329,23 +472,17 @@ function WeaknessCard({
               {weakness.traceable_quotes.length} reviews cited
             </span>
           </div>
-          <h3 className="font-semibold text-[15px] leading-snug">
-            {weakness.competitor_weakness}
-          </h3>
+          <h3 className="font-semibold text-[15px] leading-snug">{weakness.competitor_weakness}</h3>
         </div>
       </div>
 
-      {/* Our Solution */}
       <div className="ml-8 mb-3 p-3 rounded-lg bg-success-bg border border-success/20">
         <p className="text-[11px] font-semibold text-success uppercase tracking-wider mb-1">
           Our Competitive Advantage
         </p>
-        <p className="text-[13px] text-foreground/80 leading-relaxed">
-          {weakness.our_solution}
-        </p>
+        <p className="text-[13px] text-foreground/80 leading-relaxed">{weakness.our_solution}</p>
       </div>
 
-      {/* Jira Ticket */}
       <div className="ml-8 p-3 rounded-lg bg-surface border border-border">
         <p className="text-[11px] font-semibold text-accent uppercase tracking-wider mb-1.5">
           Engineering Ticket
@@ -355,18 +492,15 @@ function WeaknessCard({
         </div>
       </div>
 
-      {/* Traced Review IDs */}
       <div className="ml-8 mt-3 flex flex-wrap gap-1.5">
         {weakness.traceable_quotes.map((id) => (
           <span
             key={id}
-            className={`
-              text-[10px] font-mono px-2 py-0.5 rounded-md border transition-colors
-              ${isSelected
+            className={`text-[10px] font-mono px-2 py-0.5 rounded-md border transition-colors ${
+              isSelected
                 ? "bg-accent/20 border-accent/40 text-accent-hover"
                 : "bg-surface-overlay border-border text-text-muted"
-              }
-            `}
+            }`}
           >
             {id}
           </span>
@@ -379,6 +513,18 @@ function WeaknessCard({
 function LoadingState() {
   return (
     <div className="space-y-4">
+      {/* Health score skeleton */}
+      <div className="rounded-2xl border border-border bg-surface-raised p-5 animate-pulse-glow">
+        <div className="flex items-center justify-between mb-3">
+          <div className="space-y-2">
+            <div className="h-2.5 w-36 rounded bg-surface-overlay" />
+            <div className="h-2 w-24 rounded bg-surface-overlay" />
+          </div>
+          <div className="h-10 w-12 rounded bg-surface-overlay" />
+        </div>
+        <div className="h-2.5 rounded-full bg-surface-overlay mb-3" />
+        <div className="h-3 w-48 rounded bg-surface-overlay" />
+      </div>
       {[0, 1, 2].map((i) => (
         <div
           key={i}
@@ -400,32 +546,20 @@ function LoadingState() {
       ))}
       <div className="text-center pt-2">
         <p className="text-sm text-text-muted animate-pulse-glow">
-          Analyzing {reviews.length} reviews across English & French...
-        </p>
-        <p className="text-xs text-text-dim mt-1">
-          GPT-4o-mini is extracting traceable competitive intelligence
+          Analyzing {reviews.length} reviews · classifying churn urgency · computing health score...
         </p>
       </div>
     </div>
   );
 }
 
-function StatsBar() {
+function StatsBar({ churnSignals }: { churnSignals?: ChurnSignal[] }) {
   const langCount = reviews.reduce(
-    (acc, r) => {
-      acc[r.language] = (acc[r.language] || 0) + 1;
-      return acc;
-    },
+    (acc, r) => { acc[r.language] = (acc[r.language] || 0) + 1; return acc; },
     {} as Record<string, number>
   );
 
-  const sourceCount = reviews.reduce(
-    (acc, r) => {
-      acc[r.source] = (acc[r.source] || 0) + 1;
-      return acc;
-    },
-    {} as Record<string, number>
-  );
+  const leavingCount = churnSignals?.filter((s) => s.churn_level === "actively_leaving").length ?? 0;
 
   return (
     <div className="grid grid-cols-4 gap-3 mb-6">
@@ -434,16 +568,18 @@ function StatsBar() {
         <p className="text-2xl font-bold">{reviews.length}</p>
       </div>
       <div className="p-3 rounded-xl bg-surface-raised border border-border">
-        <p className="text-[10px] text-text-dim uppercase tracking-widest mb-1">Sources</p>
-        <p className="text-2xl font-bold">{Object.keys(sourceCount).length}</p>
-      </div>
-      <div className="p-3 rounded-xl bg-surface-raised border border-border">
         <p className="text-[10px] text-text-dim uppercase tracking-widest mb-1">English</p>
         <p className="text-2xl font-bold">{langCount["en"] || 0}</p>
       </div>
       <div className="p-3 rounded-xl bg-surface-raised border border-border">
         <p className="text-[10px] text-text-dim uppercase tracking-widest mb-1">French</p>
         <p className="text-2xl font-bold">{langCount["fr"] || 0}</p>
+      </div>
+      <div className={`p-3 rounded-xl border transition-colors ${leavingCount > 0 ? "bg-red-500/10 border-red-500/30" : "bg-surface-raised border-border"}`}>
+        <p className="text-[10px] text-text-dim uppercase tracking-widest mb-1">Switching</p>
+        <p className={`text-2xl font-bold ${leavingCount > 0 ? "text-red-400" : ""}`}>
+          {leavingCount > 0 ? leavingCount : "—"}
+        </p>
       </div>
     </div>
   );
@@ -456,8 +592,16 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedWeakness, setSelectedWeakness] = useState<number | null>(null);
+  const [profile, setProfile] = useState<CompanyProfile>(BOUNDARY_AI_PROFILE);
+  const [profileOpen, setProfileOpen] = useState(true);
 
-  // Derive the set of highlighted review IDs from the selected weakness
+  // Map of review_id → churn signal for O(1) lookup
+  const churnMap = useMemo<Map<string, ChurnSignal>>(() => {
+    if (!analysis) return new Map();
+    return new Map(analysis.churn_signals.map((s) => [s.review_id, s]));
+  }, [analysis]);
+
+  // Highlighted IDs from selected weakness
   const highlightedIds = useMemo<Set<string>>(() => {
     if (analysis && selectedWeakness !== null) {
       return new Set(analysis.weaknesses[selectedWeakness]?.traceable_quotes || []);
@@ -465,11 +609,27 @@ export default function Home() {
     return new Set();
   }, [analysis, selectedWeakness]);
 
-  // All traced IDs across all weaknesses (for subtle indicators)
+  // All traced IDs across all weaknesses
   const allTracedIds = useMemo<Set<string>>(() => {
     if (!analysis) return new Set();
     return new Set(analysis.weaknesses.flatMap((w) => w.traceable_quotes));
   }, [analysis]);
+
+  // Sort reviews: highlighted → actively_leaving → frustrated → complaining → unclassified
+  const sortedReviews = useMemo(() => {
+    if (!analysis) return reviews;
+    return [...reviews].sort((a, b) => {
+      const aHighlighted = highlightedIds.has(a.review_id) ? -1 : 0;
+      const bHighlighted = highlightedIds.has(b.review_id) ? -1 : 0;
+      if (aHighlighted !== bHighlighted) return aHighlighted - bHighlighted;
+
+      const aChurn = churnMap.get(a.review_id);
+      const bChurn = churnMap.get(b.review_id);
+      const aSort = aChurn ? CHURN_CONFIG[aChurn.churn_level].sort : 99;
+      const bSort = bChurn ? CHURN_CONFIG[bChurn.churn_level].sort : 99;
+      return aSort - bSort;
+    });
+  }, [analysis, highlightedIds, churnMap]);
 
   const runAnalysis = useCallback(async () => {
     setLoading(true);
@@ -481,7 +641,7 @@ export default function Home() {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reviews }),
+        body: JSON.stringify({ reviews, company_profile: profile }),
       });
 
       if (!res.ok) {
@@ -491,20 +651,18 @@ export default function Home() {
 
       const data: AnalysisResponse = await res.json();
       setAnalysis(data);
-      setSelectedWeakness(0); // auto-select first weakness
+      setSelectedWeakness(0);
+      setProfileOpen(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to connect to backend");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [profile]);
 
-  // Scroll a highlighted review into view
   const scrollToReview = useCallback((id: string) => {
     const el = document.getElementById(`review-${id}`);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
   }, []);
 
   return (
@@ -516,9 +674,7 @@ export default function Home() {
           {/* Top bar */}
           <div className="px-6 py-5 border-b border-border flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold tracking-tight">
-                OmniDesk Competitive Analysis
-              </h2>
+              <h2 className="text-lg font-semibold tracking-tight">OmniDesk Competitive Analysis</h2>
               <p className="text-xs text-text-muted mt-0.5">
                 {`Analyzing ${reviews.length} public reviews · EN & FR · 5 data sources`}
               </p>
@@ -552,22 +708,63 @@ export default function Home() {
           <div className="flex-1 flex overflow-hidden">
             {/* LEFT — Intelligence Panel */}
             <div className="w-[55%] border-r border-border overflow-y-auto p-6 space-y-4">
-              {!analysis && !loading && !error && (
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-purple-500/20 border border-accent/20 flex items-center justify-center text-3xl mb-4">
-                    🎯
+
+              {/* Company Profile Panel */}
+              <div className="rounded-2xl border border-border bg-surface-raised overflow-hidden">
+                <button
+                  onClick={() => setProfileOpen((o) => !o)}
+                  className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-surface-overlay transition-colors cursor-pointer"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent/30 to-purple-500/30 border border-accent/20 flex items-center justify-center text-sm">
+                      🏢
+                    </div>
+                    <div className="text-left">
+                      <p className="text-[13px] font-semibold">{profile.company_name}</p>
+                      <p className="text-[11px] text-text-muted">
+                        Your Company Profile · click to {profileOpen ? "collapse" : "expand"}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-base font-semibold mb-2">
-                    Ready to Mine Competitor Weaknesses
-                  </h3>
+                  <span className={`text-text-dim text-xs transition-transform duration-200 ${profileOpen ? "rotate-180" : ""}`}>▼</span>
+                </button>
+
+                {profileOpen && (
+                  <div className="border-t border-border px-5 py-4 space-y-3">
+                    <p className="text-[11px] text-text-dim uppercase tracking-widest mb-3">
+                      Edit profile to personalize the AI&apos;s pitch
+                    </p>
+                    {(
+                      [
+                        { key: "company_name", label: "Company Name" },
+                        { key: "description", label: "What You Do" },
+                        { key: "key_strengths", label: "Key Strengths" },
+                        { key: "target_market", label: "Target Market" },
+                        { key: "biggest_edge", label: "Biggest Competitive Edge" },
+                      ] as { key: keyof CompanyProfile; label: string }[]
+                    ).map(({ key, label }) => (
+                      <div key={key}>
+                        <label className="block text-[11px] font-medium text-text-muted mb-1">{label}</label>
+                        <textarea
+                          value={profile[key]}
+                          onChange={(e) => setProfile((p) => ({ ...p, [key]: e.target.value }))}
+                          rows={key === "company_name" ? 1 : 2}
+                          className="w-full px-3 py-2 rounded-lg bg-surface border border-border text-[12px] text-foreground/90 leading-relaxed resize-none focus:outline-none focus:border-accent/50 transition-colors"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Empty state */}
+              {!analysis && !loading && !error && (
+                <div className="flex flex-col items-center justify-center py-10 text-center">
                   <p className="text-sm text-text-muted max-w-md leading-relaxed">
-                    Click{" "}
-                    <span className="text-accent font-medium">
-                      &quot;Run Agentic Market Analysis&quot;
-                    </span>{" "}
-                    to send {reviews.length} noisy bilingual reviews through our
-                    GPT-4o-mini pipeline. The AI will identify the top 3
-                    competitor weaknesses with full traceability.
+                    Profile loaded. Click{" "}
+                    <span className="text-accent font-medium">&quot;Run Agentic Market Analysis&quot;</span>{" "}
+                    to find OmniDesk&apos;s weaknesses, classify churn urgency across all{" "}
+                    {reviews.length} reviews, and compute their health score.
                   </p>
                 </div>
               )}
@@ -583,13 +780,19 @@ export default function Home() {
 
               {analysis && (
                 <>
-                  <div className="flex items-center gap-2 mb-2">
+                  {/* Health Score */}
+                  <HealthScorePanel health={analysis.health_score} />
+
+                  {/* Separator */}
+                  <div className="flex items-center gap-2">
                     <div className="h-px flex-1 bg-border" />
                     <span className="text-[11px] font-semibold text-text-muted uppercase tracking-widest">
                       {analysis.weaknesses.length} weaknesses discovered
                     </span>
                     <div className="h-px flex-1 bg-border" />
                   </div>
+
+                  {/* Weakness cards */}
                   {analysis.weaknesses.map((w, i) => (
                     <WeaknessCard
                       key={i}
@@ -598,7 +801,6 @@ export default function Home() {
                       isSelected={selectedWeakness === i}
                       onClick={() => {
                         setSelectedWeakness(i);
-                        // Scroll first traced review into view
                         if (w.traceable_quotes.length > 0) {
                           setTimeout(() => scrollToReview(w.traceable_quotes[0]), 150);
                         }
@@ -615,26 +817,34 @@ export default function Home() {
                 <h3 className="text-sm font-semibold text-text-muted uppercase tracking-wider">
                   Raw Review Feed
                 </h3>
-                {highlightedIds.size > 0 && (
-                  <span className="text-[11px] px-2.5 py-1 rounded-lg bg-accent-glow border border-accent/30 text-accent-hover font-medium">
-                    {highlightedIds.size} traced
-                  </span>
-                )}
+                <div className="flex items-center gap-2">
+                  {analysis && (
+                    <span className="text-[11px] px-2.5 py-1 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 font-medium">
+                      🔴 {analysis.churn_signals.filter((s) => s.churn_level === "actively_leaving").length} switching
+                    </span>
+                  )}
+                  {highlightedIds.size > 0 && (
+                    <span className="text-[11px] px-2.5 py-1 rounded-lg bg-accent-glow border border-accent/30 text-accent-hover font-medium">
+                      {highlightedIds.size} traced
+                    </span>
+                  )}
+                </div>
               </div>
 
-              <StatsBar />
+              <StatsBar churnSignals={analysis?.churn_signals} />
 
               <div className="mb-6">
                 <PieChart data={useMemo(() => analyzeComplaints(reviews), [reviews])} />
               </div>
 
               <div className="space-y-2.5">
-                {reviews.map((review) => (
+                {sortedReviews.map((review) => (
                   <ReviewCard
                     key={review.review_id}
                     review={review}
                     isHighlighted={highlightedIds.has(review.review_id)}
                     isTraced={allTracedIds.has(review.review_id)}
+                    churnSignal={churnMap.get(review.review_id)}
                   />
                 ))}
               </div>
