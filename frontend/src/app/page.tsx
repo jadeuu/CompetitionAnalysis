@@ -12,6 +12,12 @@ interface Review {
   text: string;
 }
 
+interface ComplaintStats {
+  pdfExportCrashes: number;
+  frenchLocalizationIssues: number;
+  otherComplaints: number;
+}
+
 interface CompetitorWeakness {
   competitor_weakness: string;
   traceable_quotes: string[];
@@ -27,6 +33,171 @@ interface AnalysisResponse {
 
 const API_URL = "http://localhost:8000/api/analyze";
 const reviews: Review[] = reviewsData as Review[];
+
+// ─── Helper Functions ─────────────────────────────────────────────
+
+function analyzeComplaints(reviewList: Review[]): ComplaintStats {
+  const pdfKeywords = ["pdf", "export", "crash", "freeze", "fail", "broken"];
+  const frenchKeywords = ["français", "anglais", "traduction", "localiz", "fr"];
+  
+  let pdfCount = 0;
+  let frenchCount = 0;
+
+  reviewList.forEach((review) => {
+    const lowerText = review.text.toLowerCase();
+    const isFrench = review.language === "fr" || frenchKeywords.some(kw => lowerText.includes(kw));
+    const isPdf = pdfKeywords.some(kw => lowerText.includes(kw));
+
+    if (isPdf) pdfCount++;
+    else if (isFrench) frenchCount++;
+  });
+
+  return {
+    pdfExportCrashes: pdfCount,
+    frenchLocalizationIssues: frenchCount,
+    otherComplaints: reviewList.length - pdfCount - frenchCount,
+  };
+}
+
+function PieChart({
+  data,
+}: {
+  data: ComplaintStats;
+}) {
+  const total = Object.values(data).reduce((a, b) => a + b, 0);
+  const pdfPercent = (data.pdfExportCrashes / total) * 100;
+  const frenchPercent = (data.frenchLocalizationIssues / total) * 100;
+  const otherPercent = (data.otherComplaints / total) * 100;
+
+  // Calculate SVG pie slices
+  const radius = 60;
+  const circumference = 2 * Math.PI * radius;
+  
+  const pdfOffset = 0;
+  const pdfDasharray = (pdfPercent / 100) * circumference;
+  
+  const frenchOffset = pdfDasharray;
+  const frenchDasharray = (frenchPercent / 100) * circumference;
+  
+  const otherOffset = pdfDasharray + frenchDasharray;
+  const otherDasharray = (otherPercent / 100) * circumference;
+
+  return (
+    <div className="bg-surface-raised border border-border rounded-2xl p-6">
+      <h3 className="text-sm font-semibold text-text-muted uppercase tracking-wider mb-4">
+        Complaint Distribution
+      </h3>
+      
+      <div className="flex items-center gap-8">
+        {/* Pie Chart */}
+        <svg width="200" height="200" viewBox="0 0 200 200" className="flex-shrink-0">
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            stroke="#ff4444"
+            strokeWidth="28"
+            fill="none"
+            strokeDasharray={`${pdfDasharray} ${circumference}`}
+            strokeDashoffset="0"
+            strokeLinecap="round"
+            transform="rotate(-90 100 100)"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            stroke="#ff9c4d"
+            strokeWidth="28"
+            fill="none"
+            strokeDasharray={`${frenchDasharray} ${circumference}`}
+            strokeDashoffset={-pdfDasharray}
+            strokeLinecap="round"
+            transform="rotate(-90 100 100)"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r={radius}
+            stroke="#4f9fff"
+            strokeWidth="28"
+            fill="none"
+            strokeDasharray={`${otherDasharray} ${circumference}`}
+            strokeDashoffset={-(pdfDasharray + frenchDasharray)}
+            strokeLinecap="round"
+            transform="rotate(-90 100 100)"
+          />
+          <text
+            x="100"
+            y="100"
+            textAnchor="middle"
+            dy="0.3em"
+            className="font-bold text-base fill-accent"
+          >
+            {total}
+          </text>
+          <text
+            x="100"
+            y="115"
+            textAnchor="middle"
+            dy="0.3em"
+            className="fill-text-dim text-xs"
+          >
+            Reviews
+          </text>
+        </svg>
+
+        {/* Legend */}
+        <div className="flex flex-col gap-3">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-3 h-3 rounded-full bg-red-500" />
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                PDF Export Crashes
+              </span>
+            </div>
+            <div className="text-2xl font-bold text-red-500">
+              {data.pdfExportCrashes}
+              <span className="text-xs text-text-dim font-normal ml-1">
+                ({pdfPercent.toFixed(1)}%)
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-3 h-3 rounded-full bg-orange-500" />
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                French Localization Issues
+              </span>
+            </div>
+            <div className="text-2xl font-bold text-orange-500">
+              {data.frenchLocalizationIssues}
+              <span className="text-xs text-text-dim font-normal ml-1">
+                ({frenchPercent.toFixed(1)}%)
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-3 h-3 rounded-full bg-blue-500" />
+              <span className="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                Other Issues
+              </span>
+            </div>
+            <div className="text-2xl font-bold text-blue-500">
+              {data.otherComplaints}
+              <span className="text-xs text-text-dim font-normal ml-1">
+                ({otherPercent.toFixed(1)}%)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const SOURCE_COLORS: Record<string, string> = {
   G2: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
@@ -452,6 +623,10 @@ export default function Home() {
               </div>
 
               <StatsBar />
+
+              <div className="mb-6">
+                <PieChart data={useMemo(() => analyzeComplaints(reviews), [reviews])} />
+              </div>
 
               <div className="space-y-2.5">
                 {reviews.map((review) => (
